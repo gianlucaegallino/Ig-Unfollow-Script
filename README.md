@@ -28,6 +28,7 @@ Clone the repository and install dependencies:
 git clone https://github.com/yourusername/instagram-unfollower.git
 cd instagram-unfollower
 pip install -r requirements.txt
+```
 
 ---
 
@@ -61,3 +62,4 @@ Clona el repositorio e instala las dependencias:
 git clone https://github.com/tuusuario/instagram-unfollower.git
 cd instagram-unfollower
 pip install -r requirements.txt
+```
