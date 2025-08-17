@@ -43,14 +43,14 @@ OLDEST_TO_NEWEST = True
 BLOCK = True
 
 # List of users to unfollow.
-NAME_LIST = []   
+NAME_LIST = []
 
 
 ###################### FUNCTIONS ########################
 
 # Determines estimated remaining runtime, based on a number of inputs.
 def determineEstimatedTime(Amount):
-    totalSeconds = (2*MID_WAIT+2*MICRO_WAIT+FULL_LOAD+LOAD_WAIT+0.6+2)*Amount
+    totalSeconds = (2*MICRO_WAIT+FULL_LOAD+LOAD_WAIT+1.5)*Amount
     return str(datetime.timedelta(seconds=totalSeconds))
 
 # Locates image on screen.
@@ -88,6 +88,15 @@ def locate_img(
 def getNewTab():
     gui.hotkey('ctrl', 't')
     gui.write('https://www.instagram.com')
+    time.sleep(0.1)
+    gui.press('enter')
+    gui.hotkey('ctrl', 'tab')
+    gui.hotkey('ctrl', 'f4')
+
+# Opens a new instagram tab while Closing the old one.
+def getPersonTab(currentUsername):
+    gui.hotkey('ctrl', 't')
+    gui.write(f'https://www.instagram.com/{currentUsername}/')
     time.sleep(0.1)
     gui.press('enter')
     gui.hotkey('ctrl', 'tab')
@@ -131,35 +140,11 @@ for User in ListToIterate:
     print("%i out of %i. Current: %s. Est: %s" % (count, totalsize, User, determineEstimatedTime(totalsize-count)))
 
     #Open new Instagram tab
-    getNewTab()
+    getPersonTab(User)
 
     # Wait for load
     time.sleep(FULL_LOAD)
     
-    # Click on search icon.
-    search_locX, search_locY  = gui.locateCenterOnScreen(f'img/{'search.PNG'}', confidence=0.7)
-    if search_locX:
-        gui.moveTo(search_locX, search_locY, duration=0.1)
-        gui.click()
-    else:
-        print("Search icon not found at %s." % (User))
-        sys.exit('Closing script...')
-    
-    # Type username.
-    gui.write(User)
-
-    # Wait for load
-    time.sleep(MID_WAIT+0.6)
-    
-    # Click first result.
-    search_locX+=100
-    gui.moveTo(search_locX, search_locY, duration=0.1)
-    gui.click()
-
-
-    # Wait for load
-    time.sleep(MID_WAIT)
-
     if BLOCK == True:
         # Click on burger icon.
         threedots_loc = gui.locateCenterOnScreen(f'img/{'threedots.PNG'}', confidence=0.54
@@ -188,7 +173,7 @@ for User in ListToIterate:
         time.sleep(MICRO_WAIT)
 
         # Confirm block icon.
-        block2_loc = gui.locateCenterOnScreen(f'img/{'block2.PNG'}', confidence=0.6
+        block2_loc = gui.locateCenterOnScreen(f'img/{'block2.PNG'}', confidence=0.7
         )
 
         if block2_loc:
@@ -197,8 +182,6 @@ for User in ListToIterate:
         else:
             print("Block icon not found at %s." % (User))
             sys.exit('Closing script...')
-
-
     else:
         # Click on "Following".
         following_loc = gui.locateCenterOnScreen(f'img/{'following.PNG'}', confidence=0.54
