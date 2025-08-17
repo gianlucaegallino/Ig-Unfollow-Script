@@ -55,7 +55,7 @@ def locate_img(
     ):
     """Locate and click on an image. Returns True if successful, False otherwise."""
     try:
-        opt_loc = pgui.locateCenterOnScreen(
+        opt_loc = gui.locateCenterOnScreen(
             f'img/{image}',
             confidence=confidence,
             minSearchTime=search_time,
@@ -64,7 +64,7 @@ def locate_img(
             )
 
         if opt_loc:
-            pgui.click(opt_loc)
+            gui.click(opt_loc)
 
             if sleep_time:
                 time.sleep(sleep_time)
@@ -75,7 +75,7 @@ def locate_img(
         print(f"Error locating '{image}': {e}")
         return False
 
-# Opens a new instagram tab while closing the old one.
+# Opens a new instagram tab while Closing the old one.
 def getNewTab():
     #Open new Instagram tab
     gui.hotkey('ctrl', 't')
@@ -130,15 +130,14 @@ for User in ListToIterate:
     time.sleep(LOAD_TIME)
     
     # Click on search icon.
-    searchicon_loc = pgui.locateCenterOnScreen(f'img/{'search.PNG'}', confidence=0.8)
+    searchicon_loc = gui.locateCenterOnScreen(f'img/{'search.PNG'}', confidence=0.8)
 
     if searchicon_loc:
-    pgui.moveTo(searchicon_loc, duration=0.2)
-    pgui.click()
+        gui.moveTo(searchicon_loc, duration=0.2)
+        gui.click()
     else:
-    print("Browser icon not found at %s." % (User))
-    sys.exit('closing script')
-    #TODO: Add better messages for logging
+        print("Browser icon not found at %s." % (User))
+        sys.exit('Closing script...')
     
     # Type username.
     gui.write(User)
@@ -156,55 +155,55 @@ for User in ListToIterate:
 
     if BLOCK == True:
         # Click on burger icon.
-        threedots_loc = pgui.locateCenterOnScreen(f'img/{'threedots.PNG'}', confidence=0.8)
+        threedots_loc = gui.locateCenterOnScreen(f'img/{'threedots.PNG'}', confidence=0.8)
 
         if threedots_loc:
-        pgui.moveTo(threedots_loc, duration=0.2)
-        pgui.click()
+            gui.moveTo(threedots_loc, duration=0.2)
+            gui.click()
         else:
-        print("Burger icon not found at %s." % (User))
-        sys.exit('closing script')
+            print("Burger icon not found at %s." % (User))
+            sys.exit('Closing script...')
 
         # Click on block icon.
-        block_loc = pgui.locateCenterOnScreen(f'img/{'threedots.PNG'}', confidence=0.8)
+        block_loc = gui.locateCenterOnScreen(f'img/{'threedots.PNG'}', confidence=0.8)
 
         if block_loc:
-        pgui.moveTo(block_loc, duration=0.2)
-        pgui.click()
+            gui.moveTo(block_loc, duration=0.2)
+            gui.click()
         else:
-        print("Block icon not found at %s." % (User))
-        sys.exit('closing script')
+            print("Block icon not found at %s." % (User))
+            sys.exit('Closing script...')
 
         # Confirm block icon.
-        block_loc = pgui.locateCenterOnScreen(f'img/{'threedots.PNG'}', confidence=0.8)
+        block_loc = gui.locateCenterOnScreen(f'img/{'threedots.PNG'}', confidence=0.8)
 
         if block_loc:
-        pgui.moveTo(block_loc, duration=0.2)
-        pgui.click()
+            gui.moveTo(block_loc, duration=0.2)
+            gui.click()
         else:
-        print("Block icon not found at %s." % (User))
-        sys.exit('closing script')
+            print("Block icon not found at %s." % (User))
+            sys.exit('Closing script...')
 
     else:
         # Click on "Following".
-        following_loc = pgui.locateCenterOnScreen(f'img/{'following.PNG'}', confidence=0.8)
+        following_loc = gui.locateCenterOnScreen(f'img/{'following.PNG'}', confidence=0.8)
 
         if following_loc:
-        pgui.moveTo(following_loc, duration=0.2)
-        pgui.click()
+            gui.moveTo(following_loc, duration=0.2)
+            gui.click()
         else:
-        print("Following icon not found at %s." % (User))
-        sys.exit('closing script')
+            print("Following icon not found at %s." % (User))
+            sys.exit('Closing script...')
         
         # Click on Unfollow.
-        unfollow_loc = pgui.locateCenterOnScreen(f'img/{'unfollow.PNG'}', confidence=0.8)
+        unfollow_loc = gui.locateCenterOnScreen(f'img/{'unfollow.PNG'}', confidence=0.8)
 
         if unfollow_loc:
-        pgui.moveTo(unfollow_loc, duration=0.2)
-        pgui.click()
+            gui.moveTo(unfollow_loc, duration=0.2)
+            gui.click()
         else:
-        print("Unfollow icon not found at %s." % (User))
-        sys.exit('closing script')
+            print("Unfollow icon not found at %s." % (User))
+            sys.exit('Closing script...')
 
 
     #GO TO SEARCH BAR AND BACK TO INSTAGRAM
