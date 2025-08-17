@@ -2,8 +2,6 @@ import pyautogui as gui
 import numpy as np
 import time
 import datetime
-import time
-import keyboard as kb
 import sys
 
 # Instagram unfollowing script.
