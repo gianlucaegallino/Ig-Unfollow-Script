@@ -27,12 +27,6 @@ OLDEST_TO_NEWEST = True
 # Enable or disable blocking step
 BLOCK = True
 
-# Amount of seconds per unfollow on average, for time estimation. TODO: Rework
-AVERAGE_SECONDS_PER_CYCLE = 18 if BLOCK == True else 10
-
-#Time multiplier, for faster or slower unfollow cycles. 2 is half the speed, each cycle takes double 0.5 would be double speed, each cycle is halved.
-TIME_MULTIPLIER = 1.8
-
 # List of users to unfollow.
 NAME_LIST = []
 
@@ -41,7 +35,7 @@ NAME_LIST = []
 
 # Determines estimated remaining runtime, based on a number of inputs.
 def determineEstimatedTime(Amount):
-    totalSeconds = (Amount*AVERAGE_SECONDS_PER_CYCLE)*TIME_MULTIPLIER
+    totalSeconds = (2*MINI_LOAD+2*LOAD_TIME+5)
     return str(datetime.timedelta(seconds=totalSeconds))
 
 # Locates image on screen.
