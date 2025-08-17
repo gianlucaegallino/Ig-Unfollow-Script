@@ -14,7 +14,7 @@ It simulates human-like interactions to help you clean up your following list wi
 ---
 
 ## 📦 Requirements
-- Python **3.11.10**
+- Python **3.13.7**
 - [PyAutoGUI](https://pypi.org/project/PyAutoGUI/)  
 - Other dependencies (see `requirements.txt`)
 
@@ -48,7 +48,7 @@ Simula interacciones humanas para ayudarte a limpiar tu lista de seguidos sin te
 ---
 
 ## 📦 Requisitos
-- Python **3.11.10**
+- Python **3.13.7**
 - [PyAutoGUI](https://pypi.org/project/PyAutoGUI/)  
 - Otras dependencias (ver `requirements.txt`)
 
