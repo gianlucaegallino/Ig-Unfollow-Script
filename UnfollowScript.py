@@ -188,7 +188,7 @@ for User in ListToIterate:
         time.sleep(MICRO_WAIT)
 
         # Confirm block icon.
-        block2_loc = gui.locateCenterOnScreen(f'img/{'block2.PNG'}', confidence=0.62
+        block2_loc = gui.locateCenterOnScreen(f'img/{'block2.PNG'}', confidence=0.6
         )
 
         if block2_loc:
